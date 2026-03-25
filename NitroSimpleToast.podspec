@@ -21,6 +21,7 @@ Pod::Spec.new do |s|
 
   s.dependency 'React-jsi'
   s.dependency 'React-callinvoker'
+  s.dependency 'SPIndicator', '~> 1.6'
 
   load 'nitrogen/generated/ios/NitroSimpleToast+autolinking.rb'
   add_nitrogen_files(s)

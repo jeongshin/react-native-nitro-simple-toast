@@ -1,9 +1,16 @@
 import { NitroModules } from 'react-native-nitro-modules';
-import type { NitroSimpleToast } from './NitroSimpleToast.nitro';
+import type { NitroSimpleToast, ToastOptions } from './NitroSimpleToast.nitro';
 
 const NitroSimpleToastHybridObject =
   NitroModules.createHybridObject<NitroSimpleToast>('NitroSimpleToast');
 
-export function multiply(a: number, b: number): number {
-  return NitroSimpleToastHybridObject.multiply(a, b);
+export type {
+  ToastOptions,
+  ToastPreset,
+  ToastHaptic,
+  ToastFrom,
+} from './NitroSimpleToast.nitro';
+
+export function toast(options: ToastOptions): void {
+  NitroSimpleToastHybridObject.show(options);
 }

@@ -9,8 +9,14 @@
   },
   "autolinking": {
     "NitroSimpleToast": {
-      "swift": "NitroSimpleToast",
-      "kotlin": "NitroSimpleToast"
+      "ios": {
+        "language": "swift",
+        "implementationClassName": "NitroSimpleToast"
+      },
+      "android": {
+        "language": "kotlin",
+        "implementationClassName": "NitroSimpleToast"
+      }
     }
   },
   "ignorePaths": ["node_modules"]

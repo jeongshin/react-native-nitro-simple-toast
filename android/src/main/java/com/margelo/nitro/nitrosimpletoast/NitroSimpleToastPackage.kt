@@ -7,6 +7,7 @@ import com.facebook.react.module.model.ReactModuleInfoProvider
 
 class NitroSimpleToastPackage : BaseReactPackage() {
     override fun getModule(name: String, reactContext: ReactApplicationContext): NativeModule? {
+        appContext = reactContext
         return null
     }
 
@@ -18,5 +19,8 @@ class NitroSimpleToastPackage : BaseReactPackage() {
         init {
             System.loadLibrary("nitrosimpletoast")
         }
+
+        @Volatile
+        var appContext: ReactApplicationContext? = null
     }
 }
