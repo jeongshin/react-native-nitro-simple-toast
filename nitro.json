@@ -1,0 +1,17 @@
+{
+  "cxxNamespace": ["nitrosimpletoast"],
+  "ios": {
+    "iosModuleName": "NitroSimpleToast"
+  },
+  "android": {
+    "androidNamespace": ["nitrosimpletoast"],
+    "androidCxxLibName": "nitrosimpletoast"
+  },
+  "autolinking": {
+    "NitroSimpleToast": {
+      "swift": "NitroSimpleToast",
+      "kotlin": "NitroSimpleToast"
+    }
+  },
+  "ignorePaths": ["node_modules"]
+}
