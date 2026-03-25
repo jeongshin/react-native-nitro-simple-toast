@@ -8,12 +8,13 @@ import android.os.Vibrator
 import android.os.VibratorManager
 import android.widget.Toast
 import com.facebook.proguard.annotations.DoNotStrip
+import com.margelo.nitro.NitroModules
 
 @DoNotStrip
 class NitroSimpleToast : HybridNitroSimpleToastSpec() {
 
     override fun show(options: ToastOptions): Unit {
-        val context = NitroSimpleToastPackage.appContext ?: return
+        val context = NitroModules.applicationContext ?: return
 
         Handler(Looper.getMainLooper()).post {
             val text = if (options.message != null) {
@@ -38,7 +39,7 @@ class NitroSimpleToast : HybridNitroSimpleToastSpec() {
     private fun performHaptic(haptic: ToastHaptic) {
         if (haptic == ToastHaptic.NONE) return
 
-        val context = NitroSimpleToastPackage.appContext ?: return
+        val context = NitroModules.applicationContext ?: return
 
         val vibrator = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             val vibratorManager = context.getSystemService(
