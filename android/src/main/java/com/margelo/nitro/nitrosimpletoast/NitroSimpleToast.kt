@@ -73,7 +73,7 @@ class NitroSimpleToast : HybridNitroSimpleToastSpec() {
 
         // Icon based on preset
         val iconView = container.findViewById<ImageView>(R.id.toast_icon)
-        when (options.preset ?: ToastPreset.DONE) {
+        when (options.preset ?: ToastPreset.NONE) {
             ToastPreset.DONE -> {
                 iconView.setImageResource(R.drawable.ic_toast_done)
                 iconView.visibility = View.VISIBLE

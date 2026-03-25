@@ -7,7 +7,7 @@ class NitroSimpleToast: HybridNitroSimpleToastSpec {
         DispatchQueue.main.async {
             let indicatorView: SPIndicatorView
 
-            switch options.preset ?? .done {
+            switch options.preset ?? .none {
             case .done:
                 indicatorView = SPIndicatorView(
                     title: options.title,

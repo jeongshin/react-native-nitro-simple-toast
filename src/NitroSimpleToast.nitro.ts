@@ -12,7 +12,7 @@ export interface ToastOptions {
   title: string;
   message?: string;
   /**
-   * Defaults to `done`.
+   * Defaults to `none`.
    */
   preset?: ToastPreset;
   /**
