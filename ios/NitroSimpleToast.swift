@@ -27,6 +27,15 @@ class NitroSimpleToast: HybridNitroSimpleToastSpec {
                 )
             }
 
+            switch options.theme ?? .system {
+            case .light:
+                indicatorView.overrideUserInterfaceStyle = .light
+            case .dark:
+                indicatorView.overrideUserInterfaceStyle = .dark
+            case .system:
+                break
+            }
+
             if let duration = options.duration {
                 indicatorView.duration = duration
             }

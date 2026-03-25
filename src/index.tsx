@@ -9,6 +9,7 @@ export type {
   ToastPreset,
   ToastHaptic,
   ToastFrom,
+  ToastTheme,
 } from './NitroSimpleToast.nitro';
 
 export function toast(options: ToastOptions): void {

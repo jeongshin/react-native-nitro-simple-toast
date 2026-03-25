@@ -66,6 +66,30 @@ export default function App() {
             })
           }
         />
+
+        <Button
+          title="Light Theme Toast"
+          onPress={() =>
+            toast({
+              title: 'Light Mode',
+              message: 'Forced light theme',
+              preset: 'done',
+              theme: 'light',
+            })
+          }
+        />
+
+        <Button
+          title="Dark Theme Toast"
+          onPress={() =>
+            toast({
+              title: 'Dark Mode',
+              message: 'Forced dark theme',
+              preset: 'done',
+              theme: 'dark',
+            })
+          }
+        />
       </View>
     </SafeAreaView>
   );

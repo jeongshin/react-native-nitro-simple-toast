@@ -6,6 +6,8 @@ export type ToastHaptic = 'success' | 'warning' | 'error' | 'none';
 
 export type ToastFrom = 'top' | 'bottom';
 
+export type ToastTheme = 'light' | 'dark' | 'system';
+
 export interface ToastOptions {
   title: string;
   message?: string;
@@ -27,6 +29,10 @@ export interface ToastOptions {
    * @platform ios
    */
   from?: ToastFrom;
+  /**
+   * Defaults to `system`.
+   */
+  theme?: ToastTheme;
 }
 
 export interface NitroSimpleToast
