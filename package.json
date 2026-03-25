@@ -1,6 +1,6 @@
 {
   "name": "react-native-nitro-simple-toast",
-  "version": "0.1.1-beta.2",
+  "version": "0.1.1-beta.3",
   "description": "react native simple toast powered by nitro",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
