@@ -83,7 +83,7 @@ class NitroSimpleToast: HybridNitroSimpleToastSpec {
                     indicatorView,
                     &ToastTapHandler.associatedKey,
                     tapHandler,
-                    .OBJC_ASSOCIATION_RETAIN_NONNULL
+                    .OBJC_ASSOCIATION_RETAIN_NONATOMIC
                 )
             }
 
