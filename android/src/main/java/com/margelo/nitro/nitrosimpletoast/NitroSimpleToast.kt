@@ -95,6 +95,15 @@ class NitroSimpleToast : HybridNitroSimpleToastSpec() {
         // Duration in milliseconds (default 3 seconds)
         val durationMs = ((options.duration ?: 3.0) * 1000).toInt()
 
+        // Tap → JS onPress callback (dismiss the toast first)
+        val onPress = options.onPress
+        if (onPress != null) {
+            container.setOnClickListener {
+                toastWindow?.cancel()
+                onPress.invoke()
+            }
+        }
+
         // Show with EasyWindow
         toastWindow = EasyWindow<EasyWindow<*>>(activity).apply {
             setDuration(durationMs)

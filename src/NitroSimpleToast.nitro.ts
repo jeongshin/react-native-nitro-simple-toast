@@ -33,6 +33,10 @@ export interface ToastOptions {
    * Defaults to `system`.
    */
   theme?: ToastTheme;
+  /**
+   * Called when the user taps the toast. Tapping dismisses the toast.
+   */
+  onPress?: () => void;
 }
 
 export interface NitroSimpleToast

@@ -60,6 +60,7 @@ toast({
 | `shouldDismissByDrag` | `boolean` | `true` | Allow drag to dismiss (iOS only) |
 | `from` | `'top' \| 'bottom'` | `'top'` | Presentation side |
 | `theme` | `'light' \| 'dark' \| 'system'` | `'system'` | Toast color theme |
+| `onPress` | `() => void` | — | Called when the toast is tapped. Tapping dismisses the toast |
 
 ## Platform Notes
 
