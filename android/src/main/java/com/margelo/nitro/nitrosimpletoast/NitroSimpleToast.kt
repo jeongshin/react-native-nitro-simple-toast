@@ -11,12 +11,14 @@ import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.facebook.proguard.annotations.DoNotStrip
 import com.hjq.window.EasyWindow
 import com.margelo.nitro.NitroModules
+import kotlin.math.roundToInt
 
 @DoNotStrip
 class NitroSimpleToast : HybridNitroSimpleToastSpec() {
@@ -87,6 +89,13 @@ class NitroSimpleToast : HybridNitroSimpleToastSpec() {
             }
         }
 
+        // Cap the text width so long copy wraps onto more lines with a side
+        // margin instead of stretching the toast edge to edge. Text narrower
+        // than the cap lays out exactly as before.
+        val textMaxWidth = resolveTextMaxWidth(activity, container, iconView)
+        titleView.maxWidth = textMaxWidth
+        messageView.maxWidth = textMaxWidth
+
         // Position
         val isBottom = options.from == ToastFrom.BOTTOM
         val gravity = if (isBottom) Gravity.BOTTOM else Gravity.TOP
@@ -133,6 +142,31 @@ class NitroSimpleToast : HybridNitroSimpleToastSpec() {
         }
     }
 
+    /**
+     * Widest the title/message may grow before wrapping: the screen width minus
+     * [SIDE_MARGIN_DP] on each edge, the container's horizontal padding and, when
+     * the icon is shown, the icon width plus its end margin.
+     */
+    private fun resolveTextMaxWidth(
+        activity: Activity,
+        container: LinearLayout,
+        iconView: ImageView
+    ): Int {
+        val screenWidth = activity.resources.displayMetrics.widthPixels
+        val sideMargins = 2 * dpToPx(activity, SIDE_MARGIN_DP)
+        val containerPadding = container.paddingLeft + container.paddingRight
+        val iconSpace = if (iconView.visibility == View.VISIBLE) {
+            val iconParams = iconView.layoutParams as ViewGroup.MarginLayoutParams
+            iconParams.width + iconParams.marginEnd
+        } else {
+            0
+        }
+        return screenWidth - sideMargins - containerPadding - iconSpace
+    }
+
+    private fun dpToPx(activity: Activity, dp: Int): Int =
+        (dp * activity.resources.displayMetrics.density).roundToInt()
+
     private fun performHaptic(haptic: ToastHaptic) {
         if (haptic == ToastHaptic.NONE) return
 
@@ -165,5 +199,8 @@ class NitroSimpleToast : HybridNitroSimpleToastSpec() {
 
     companion object {
         private const val TAG = "NitroSimpleToast"
+
+        /** Minimum gap between a wrapped toast and each screen edge. */
+        private const val SIDE_MARGIN_DP = 24
     }
 }
