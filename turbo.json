@@ -1,6 +1,17 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": [".nvmrc", ".yarnrc.yml"],
+  "globalDependencies": [
+    ".nvmrc",
+    ".yarnrc.yml",
+    "*.podspec",
+    "nitro.json",
+    "src/**",
+    "ios/**",
+    "cpp/**",
+    "android/src/**",
+    "android/build.gradle",
+    "android/CMakeLists.txt"
+  ],
   "globalEnv": ["NODE_ENV"],
   "tasks": {
     "build:android": {
@@ -24,7 +35,8 @@
         "RCT_NEW_ARCH_ENABLED",
         "RCT_REMOVE_LEGACY_ARCH",
         "RCT_USE_RN_DEP",
-        "RCT_USE_PREBUILT_RNCORE"
+        "RCT_USE_PREBUILT_RNCORE",
+        "XCODE_VERSION"
       ],
       "inputs": [
         "package.json",
