@@ -166,7 +166,17 @@ jobs:
           cd example
           bundle install
           bundle exec pod repo update --verbose
-          bundle exec pod install --project-directory=ios
+          bundle exec pod update --project-directory=ios
+
+      - name: Export RN upgrade verification inputs
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: rn-0.88.1-ios-inputs
+          retention-days: 3
+          if-no-files-found: warn
+          path: |
+            example/ios/Podfile.lock
 
       - name: Build example for iOS
         run: |
