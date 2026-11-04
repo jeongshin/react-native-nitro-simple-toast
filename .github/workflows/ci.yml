@@ -123,7 +123,7 @@ jobs:
     runs-on: macos-latest
 
     env:
-      XCODE_VERSION: 26
+      XCODE_VERSION: 27
       TURBO_CACHE_DIR: .turbo/ios
       RCT_USE_RN_DEP: 1
       RCT_USE_PREBUILT_RNCORE: 1

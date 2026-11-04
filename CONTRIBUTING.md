@@ -23,7 +23,7 @@ yarn
 
 This project uses Nitro Modules. If you're not familiar with how Nitro works, make sure to check the [Nitro Modules Docs](https://nitro.margelo.com/).
 
-You need to run [Nitrogen](https://nitro.margelo.com/docs/nitrogen) to generate the boilerplate code required for this project. The example app will not build without this step.
+You need to run [Nitrogen](https://nitro.margelo.com/docs/concepts/nitrogen) to generate the boilerplate code required for this project. The example app will not build without this step.
 
 Run **Nitrogen** in following cases:
 
@@ -145,3 +145,9 @@ When you're sending a pull request:
 - Review the documentation to make sure it looks good.
 - Follow the pull request template when opening a pull request.
 - For pull requests that change the API or implementation, discuss with maintainers first by opening an issue.
+
+## RN 0.88 개발 환경
+
+예제는 React Native 0.88.1, React 19.3.0, Nitro/Nitrogen 0.37.2를 기준으로 해요. Node는 `.nvmrc`, Android는 Gradle 9.4.1·SDK 37·NDK 27.1.12297006, iOS는 Xcode 27을 사용해요. Android targetSdk는 36을 유지해요.
+
+Nitro를 올릴 때는 런타임과 Nitrogen을 함께 맞추고 `yarn prepare`를 실행해요. Bob이 `nitrogen/`을 청소한 뒤 생성 코드를 다시 만들어요. 생성 폴더는 수동 수정하지 않으며, `yarn pack --dry-run`에서 iOS·Android·공유 C++ 생성 파일이 모두 포함되는지 확인해요. 배포 전에 `yarn typecheck`, `yarn lint`, 두 플랫폼 예제 빌드와 실제 동작을 확인해요.
